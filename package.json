@@ -1,0 +1,28 @@
+{
+  "name": "swigit",
+  "version": "0.0.1",
+  "description": "simple blogging platform for developers",
+  "main": "swig.js",
+  "scripts": {
+    "test": "gulp grunt"
+  },
+  "author": "lukaswelinder",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.3.5",
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "passport": "^0.3.2",
+    "serve-static": "^1.10.2"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-imagemin": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}

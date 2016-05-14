@@ -1,0 +1,24 @@
+{
+  "name": "swigit",
+  "description": "simple blogging platform for developers",
+  "main": "swig.js",
+  "authors": [
+    "lukaswelinder"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-medium-editor": "^1.1.1",
+    "jquery": "^2.2.3",
+    "Materialize": "materialize#^0.97.6",
+    "angular-materialize": "^0.1.5"
+  }
+}

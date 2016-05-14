@@ -1,0 +1,4 @@
+node_modules
+pub/libs
+pub/build/*
+app/data/._db
