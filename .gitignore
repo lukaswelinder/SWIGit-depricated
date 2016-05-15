@@ -1,4 +1,7 @@
 node_modules
 pub/libs
+pub/assets/img/*
 pub/build/*
-app/data/._db
+app/data/_*
+.sass-cache
+_notes

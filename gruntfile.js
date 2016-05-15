@@ -5,8 +5,8 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
       files: [
-        'app/**/*.js',
-        'pub/js/**/*.js'
+        'app/**/*.js', // server files
+        'pub/js/**/*.js', // client files
       ]
     },
     //TODO: mocha unit-tests
@@ -16,6 +16,7 @@ module.exports = function(grunt) {
           src: [
             'pub/libs/jquery/dist/jquery.js',
             'pub/libs/angular/angular.js',
+            'pub/libs/angular-ui-router/angular-ui-router.js',
             'pub/libs/materialize/dist/js/materialize.js',
             'pub/libs/angular-materialize/angular-materialize.js',
           ],

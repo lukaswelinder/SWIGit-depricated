@@ -19,6 +19,7 @@
     "angular-medium-editor": "^1.1.1",
     "jquery": "^2.2.3",
     "Materialize": "materialize#^0.97.6",
-    "angular-materialize": "^0.1.5"
+    "angular-materialize": "^0.1.5",
+    "angular-ui-router": "^0.2.18"
   }
 }

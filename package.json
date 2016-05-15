@@ -1,10 +1,12 @@
 {
   "name": "swigit",
   "version": "0.0.1",
-  "description": "simple blogging platform for developers",
+  "description": "blogging boilerplate for developers",
   "main": "swig.js",
   "scripts": {
-    "test": "gulp grunt"
+    "test": "grunt test",
+    "build": "grunt build",
+    "deploy": "grunt deploy"
   },
   "author": "lukaswelinder",
   "license": "MIT",
