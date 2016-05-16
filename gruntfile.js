@@ -5,31 +5,28 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     jshint: {
       files: [
-        'app/**/*.js', // server files
+        //'app/**/*.js', // server files
         'pub/js/**/*.js', // client files
       ]
     },
     //TODO: mocha unit-tests
 
+// ON CDN:
+            // 'pub/libs/jquery/dist/jquery.js',
+            // 'pub/libs/angular/angular.js',
+            // 'pub/libs/angular-ui-router/angular-ui-router.js',
+            // 'pub/libs/prism/prism.js',
+            // 'pub/libs/materialize/dist/js/materialize.js',
+
     concat: {
-      deps: {
+      libs: {
           src: [
-            'pub/libs/jquery/dist/jquery.js',
-            'pub/libs/angular/angular.js',
-            'pub/libs/angular-ui-router/angular-ui-router.js',
-            'pub/libs/prism/prism.js',
-            'pub/libs/materialize/dist/js/materialize.js',
+            // 'pub/libs/medium-editor/dist/js/medium-editor.js',
+            // 'pub/libs/angular-medium-editor/dist/js/angular-medium-editor.js',
             'pub/libs/angular-materialize/src/angular-materialize.js'
           ],
-          dest: 'pub/build/js/swigit_client_deps.js'
+          dest: 'pub/build/js/swigit_client_libs.js'
       },
-      // libs: {
-      //     src: [
-      //       'pub/libs/medium-editor/dist/js/medium-editor.js',
-      //       'pub/libs/angular-medium-editor/dist/js/angular-medium-editor.js',
-      //     ],
-      //     dest: 'pub/build/js/swigit_client_libs.js'
-      // },
       dist: {
           src: [ 'pub/js/**/*.js', 'pub/js/*.js'],
           dest: 'pub/build/js/swigit_client.js'
@@ -37,14 +34,10 @@ module.exports = function(grunt) {
     },
 
     uglify: {
-      deps: {
-        src: 'pub/build/js/swigit_client_deps.js',
-        dest: 'pub/build/js/swigit_client_deps.min.js'
+      libs: {
+        src: 'pub/build/js/swigit_client_libs.js',
+        dest: 'pub/build/js/swigit_client_libs.min.js'
       },
-      // libs: {
-      //   src: 'pub/build/js/swigit_client_libs.js',
-      //   dest: 'pub/build/js/swigit_client_libs.min.js'
-      // },
       dist: {
         src: 'pub/build/js/swigit_client.js',
         dest: 'pub/build/js/swigit_client.min.js'
@@ -79,19 +72,14 @@ module.exports = function(grunt) {
       target: {
         files: [
         {
-          src: 'pub/libs/prism/themes/prism-twilight.css',
-          dest: 'pub/build/css/prism-twilight.min.css'
+          src: [
+            'pub/css/*.css'
+          ],
+          dest: 'pub/build/css/styles.min.css'
         }
         ] 
       }
     },
-
-    // css: { 
-    //   tasks: ['sass','cssmin'],
-    //   options: {
-    //     spawn: false,
-    //   }
-    // },
 
     imagemin: { 
       dynamic: {
