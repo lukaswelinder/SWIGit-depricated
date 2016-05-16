@@ -17,18 +17,19 @@ module.exports = function(grunt) {
             'pub/libs/jquery/dist/jquery.js',
             'pub/libs/angular/angular.js',
             'pub/libs/angular-ui-router/angular-ui-router.js',
+            'pub/libs/prism/prism.js',
             'pub/libs/materialize/dist/js/materialize.js',
-            'pub/libs/angular-materialize/angular-materialize.js',
+            'pub/libs/angular-materialize/src/angular-materialize.js'
           ],
           dest: 'pub/build/js/swigit_client_deps.js'
       },
-      libs: {
-          src: [
-            'pub/libs/medium-editor/dist/js/medium-editor.js',
-            'pub/libs/angular-medium-editor/dist/js/angular-medium-editor.js',
-          ],
-          dest: 'pub/build/js/swigit_client_libs.js'
-      },
+      // libs: {
+      //     src: [
+      //       'pub/libs/medium-editor/dist/js/medium-editor.js',
+      //       'pub/libs/angular-medium-editor/dist/js/angular-medium-editor.js',
+      //     ],
+      //     dest: 'pub/build/js/swigit_client_libs.js'
+      // },
       dist: {
           src: [ 'pub/js/**/*.js', 'pub/js/*.js'],
           dest: 'pub/build/js/swigit_client.js'
@@ -40,10 +41,10 @@ module.exports = function(grunt) {
         src: 'pub/build/js/swigit_client_deps.js',
         dest: 'pub/build/js/swigit_client_deps.min.js'
       },
-      libs: {
-        src: 'pub/build/js/swigit_client_libs.js',
-        dest: 'pub/build/js/swigit_client_libs.min.js'
-      },
+      // libs: {
+      //   src: 'pub/build/js/swigit_client_libs.js',
+      //   dest: 'pub/build/js/swigit_client_libs.min.js'
+      // },
       dist: {
         src: 'pub/build/js/swigit_client.js',
         dest: 'pub/build/js/swigit_client.min.js'
@@ -58,8 +59,8 @@ module.exports = function(grunt) {
           style: 'compressed'
         },
         files: [{
-            src: 'pub/build/css/materialize.min.css',
-            dest: 'pub/libs/materialize/sass/materialize.scss'
+            src: 'pub/libs/materialize/sass/materialize.scss',
+            dest: 'pub/build/css/materialize.min.css'
         }]
       },
       dist: {
@@ -74,15 +75,25 @@ module.exports = function(grunt) {
       }
     },
 
-    css: {
-      files: ['pub/sass/*.scss'],
-      tasks: ['sass'],
-      options: {
-        spawn: false,
+    cssmin: {
+      target: {
+        files: [
+        {
+          src: 'pub/libs/prism/themes/prism-twilight.css',
+          dest: 'pub/build/css/prism-twilight.min.css'
+        }
+        ] 
       }
     },
 
-    imagemin: {
+    // css: { 
+    //   tasks: ['sass','cssmin'],
+    //   options: {
+    //     spawn: false,
+    //   }
+    // },
+
+    imagemin: { 
       dynamic: {
         files: [{
           expand: true,
@@ -121,6 +132,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
@@ -130,9 +142,19 @@ module.exports = function(grunt) {
     'jshint',
     'concat',
     'uglify',
-    'imagemin',
     'sass',
+    'cssmin',
+    'imagemin',
     'watch'
+  ]);
+
+  grunt.registerTask('build', [
+    'jshint',
+    'concat',
+    'uglify',
+    'sass',
+    'cssmin',
+    'imagemin'
   ]);
 
   //TODO: setup env settings for deployment & testing
