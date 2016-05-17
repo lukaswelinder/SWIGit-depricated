@@ -5,6 +5,8 @@ var partials = require('express-partials'); //install
 var session = require('express-session'); //install
 var bodyParser = require('body-parser'); //install
 
+var route = require('./http/route');
+
 var app = express();
 
 app.use(partials());
@@ -15,8 +17,5 @@ app.use(express.static(__dirname + '/../pub'));
 //   resave: false,
 //   saveUninitialized: true
 // }));
-// app.get('*');
-// app.get('/*', function(res,req,next) {
-//   res.send(__dirname+ '/../pub/index.html');
-// });
+app.get('/*', route.redirect);
 module.exports = app;

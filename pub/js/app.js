@@ -40,10 +40,22 @@ angular.module('swigit', [
 
     $locationProvider.html5Mode(true);
 
+    $urlRouterProvider.deferIntercept();
+
   // $httpProvider.interceptors.push('');
   // $httpProvider.interceptors.push('AttachTokens');
 
+})
 
+.run(function ($rootScope, $urlRouter) {
+ 
+  $rootScope.$on('$locationChangeSuccess', function(evt,curr,prev) {
+    console.log(evt,curr,prev);
+   // middleware for route changes
+  });
+ 
+  // Configures $urlRouter's listener *after* your custom listener
+  $urlRouter.listen();
 });
 
 

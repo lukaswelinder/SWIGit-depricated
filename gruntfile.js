@@ -11,7 +11,7 @@ module.exports = function(grunt) {
     },
     //TODO: mocha unit-tests
 
-// ON CDN:
+// now on CDN:
             // 'pub/libs/jquery/dist/jquery.js',
             // 'pub/libs/angular/angular.js',
             // 'pub/libs/angular-ui-router/angular-ui-router.js',
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
 
     //NOTE: requires sass to be installed on your machine
     //> gem install sass
-    sass: { 
+    sass: { // NOTE: not currently used
       libs: {
         options: {
           style: 'compressed'
@@ -102,7 +102,7 @@ module.exports = function(grunt) {
             // 'pub/js/*.js',
             // 'pub/js/**/*.js',
             // 'pub/sass/*.scss'
-            'pub/*'
+            'pub/**'
         ],
         tasks: [
           'concat:dist',
@@ -130,9 +130,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', [
     'jshint',
-    'concat',
-    'uglify',
-    'sass',
+    'concat:dist',
+    'uglify:dist',
     'cssmin',
     'imagemin',
     'watch'
