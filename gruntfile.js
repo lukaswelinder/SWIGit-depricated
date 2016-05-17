@@ -21,14 +21,16 @@ module.exports = function(grunt) {
     concat: {
       libs: {
           src: [
-            // 'pub/libs/medium-editor/dist/js/medium-editor.js',
-            // 'pub/libs/angular-medium-editor/dist/js/angular-medium-editor.js',
-            'pub/libs/angular-materialize/src/angular-materialize.js'
+            'pub/libs/angular-materialize/src/angular-materialize.js',
+            'pub/libs/angular-ui-router/release/angular-ui-router.js'
           ],
           dest: 'pub/build/js/swigit_client_libs.js'
       },
       dist: {
-          src: [ 'pub/js/**/*.js', 'pub/js/*.js'],
+          src: [ 
+            'pub/js/**/*.js', 
+            'pub/js/*.js'
+          ],
           dest: 'pub/build/js/swigit_client.js'
       }
     },
@@ -97,15 +99,15 @@ module.exports = function(grunt) {
       },
       scripts: {
         files: [
-            'pub/js/*.js',
-            'pub/js/**/*.js',
-            'pub/sass/*.scss'
+            // 'pub/js/*.js',
+            // 'pub/js/**/*.js',
+            // 'pub/sass/*.scss'
+            'pub/*'
         ],
         tasks: [
-          'jshint',
           'concat:dist',
           'uglify:dist',
-          'css'
+          'cssmin'
         ],
         options: {
           spawn: false,

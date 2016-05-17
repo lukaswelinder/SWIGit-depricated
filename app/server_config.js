@@ -16,4 +16,7 @@ app.use(express.static(__dirname + '/../pub'));
 //   saveUninitialized: true
 // }));
 // app.get('*');
+// app.get('/*', function(res,req,next) {
+//   res.send(__dirname+ '/../pub/index.html');
+// });
 module.exports = app;
