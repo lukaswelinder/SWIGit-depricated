@@ -28,6 +28,7 @@ module.exports = function(grunt) {
       },
       dist: {
           src: [ 
+            // 'pub/js/helpers/*.js'
             'pub/js/**/*.js', 
             'pub/js/*.js'
           ],

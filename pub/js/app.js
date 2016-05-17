@@ -1,31 +1,39 @@
 
-angular.module('ctrl',[])
-  .controller('indexCtrl',['$scope',function($scope) {
-    $scope.hello = 'Index';
-  }])
-  .controller('aboutCtrl',['$scope',function($scope) {
-    $scope.hello = 'About';
-  }])
-  .controller('workCtrl',['$scope',function($scope) {
-    $scope.hello = 'Work';
-  }]);
-
-
 
 angular.module('swigit', [
   'ui.materialize',
   'ui.router',
-  'ctrl'])
+  'swigit.post_index',
+  'swigit.post_body',
+  'swigit.about',
+  'swigit.work',
+  'swigit.ctrl'])
 
-.config(function($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
+.config(function($stateProvider, $urlRouterProvider, 
+          $httpProvider, $locationProvider) {
 
 
+
+
+
+  $urlRouterProvider.otherwise('/');
 
   $stateProvider
     .state('index', {
         url: '/',
         templateUrl: '/views/post-index.html',
         controller: 'indexCtrl'
+      })
+    .state('index.post', {
+        url: 'post/:url_slug',
+        templateUrl: '/views/post-body.html',
+        controller: 'postCtrl',
+        // resolve: {
+        //   get_post: ['$stateParam','data',function($stateParam,data) {
+        //     console.log($stateParam.post);
+        //     return true;
+        //   }]
+        // }
       })
     .state('about', {
         url: '/about',
@@ -34,13 +42,14 @@ angular.module('swigit', [
       })
     .state('work', {
         url: '/work',
-        templateUrl: '/views/post-body.html',
+        templateUrl: '/views/work.html',
         controller: 'workCtrl'
       });
 
+
     $locationProvider.html5Mode(true);
 
-    $urlRouterProvider.deferIntercept();
+    //$urlRouterProvider.deferIntercept();
 
   // $httpProvider.interceptors.push('');
   // $httpProvider.interceptors.push('AttachTokens');
@@ -48,14 +57,19 @@ angular.module('swigit', [
 })
 
 .run(function ($rootScope, $urlRouter) {
- 
-  $rootScope.$on('$locationChangeSuccess', function(evt,curr,prev) {
-    console.log(evt,curr,prev);
-   // middleware for route changes
+  
+  $rootScope.$on('$locationChangeStart', function(evt,next,curr) {
+    $('.ui-view-body').hide();
+    console.log(evt,next,curr);
   });
- 
+  $rootScope.$on('$locationChangeSuccess', function(evt,curr,prev) {
+    $('.ui-view-body').fadeIn('slow');
+    // console.log(evt,curr,prev);
+  });
+
+
   // Configures $urlRouter's listener *after* your custom listener
-  $urlRouter.listen();
+  //$urlRouter.listen();
 });
 
 

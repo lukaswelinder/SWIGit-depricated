@@ -19,6 +19,7 @@ db.schema.hasTable('posts').then(function(exists) {
       link.string('file_path', 128);
       link.string('category', 64); // shortened redirect path
       link.string('title', 64); // title fetched from site
+      link.string('author', 64);
       link.integer('visits');
       link.timestamps(); // ?
     }).then(function (table) {
@@ -26,3 +27,6 @@ db.schema.hasTable('posts').then(function(exists) {
     });
   }
 });
+
+var Bookshelf = require('bookshelf')(db);
+module.exports = Bookshelf;
