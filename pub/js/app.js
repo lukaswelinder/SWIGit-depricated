@@ -27,7 +27,7 @@ angular.module('swigit', [
     .state('index.post', {
         url: 'post/:url_slug',
         templateUrl: '/views/post-body.html',
-        controller: 'postCtrl',
+        controller: 'postCtrl'
         // resolve: {
         //   get_post: ['$stateParam','data',function($stateParam,data) {
         //     console.log($stateParam.post);
