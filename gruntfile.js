@@ -143,8 +143,7 @@ module.exports = function(grunt) {
     'concat',
     'uglify',
     'sass',
-    'cssmin',
-    'imagemin'
+    'cssmin'
   ]);
 
   //TODO: setup env settings for deployment & testing

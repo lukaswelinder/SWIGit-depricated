@@ -28,12 +28,6 @@ angular.module('swigit', [
         url: 'post/:url_slug',
         templateUrl: '/views/post-body.html',
         controller: 'postCtrl'
-        // resolve: {
-        //   get_post: ['$stateParam','data',function($stateParam,data) {
-        //     console.log($stateParam.post);
-        //     return true;
-        //   }]
-        // }
       })
     .state('about', {
         url: '/about',
@@ -49,7 +43,7 @@ angular.module('swigit', [
 
     $locationProvider.html5Mode(true);
 
-    //$urlRouterProvider.deferIntercept();
+    // $urlRouterProvider.deferIntercept();
 
   // $httpProvider.interceptors.push('');
   // $httpProvider.interceptors.push('AttachTokens');
@@ -69,7 +63,7 @@ angular.module('swigit', [
 
 
   // Configures $urlRouter's listener *after* your custom listener
-  //$urlRouter.listen();
+  // $urlRouter.listen();
 });
 
 

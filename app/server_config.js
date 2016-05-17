@@ -19,6 +19,6 @@ app.use(bodyParser.json());
 //   saveUninitialized: true
 // }));
 app.use(express.static(__dirname + '/../pub'));
-
+app.get('/_api/posts', route.post_data);
 app.get('/*', route.redirect);
 module.exports = app;

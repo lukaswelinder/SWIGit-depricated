@@ -1,15 +1,15 @@
 // helpers & middleware 
 
 angular.module('swigit.ctrl',[])
-  .factory('data',['$http','$state',function($http, $state) {
+  .factory('dataCtrl',['$http',function($http) {
     
     var db = {};
     
-    var fetch_one = function() {
-      console.log($state.params);
+    var fetch_post = function(params) {
+      console.log(params);
 
-      if($state.params.url_slug in db)
-        return db[$state.params.url_slug];
+      if(params.url_slug in db)
+        return db[params.url_slug];
 
       return $http.get('/_api/posts',{
           headers: {
@@ -17,21 +17,21 @@ angular.module('swigit.ctrl',[])
           },
           data: params,
         }).then(function(res) {
-
+          return res.data;
         });
     };
 
     var fetch_index = function() {
       return $http.get('/_api/posts')
         .then(function(res) {
-          // parse data to db using slug as object key
-          // return data for promise-chaining
+          // parse dataCtrl to db using slug as object key
+          // return dataCtrl for promise-chaining
         });
     };
 
    return {
     db: db,
-    fetch_one: fetch_one,
+    fetch_post: fetch_post,
     fetch_index: fetch_index
    };
 

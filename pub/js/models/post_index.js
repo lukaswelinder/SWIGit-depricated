@@ -5,8 +5,8 @@ angular.module('swigit.post_index',[])
     '$scope',
     '$state',
     '$stateParams',
-    'data',
-    function($scope,$state,$stateParams,data) {
+    'dataCtrl',
+    function($scope,$state,$stateParams,dataCtrl) {
     //simulate json...
     $scope.posts = [
     {
