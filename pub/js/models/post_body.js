@@ -7,6 +7,7 @@ angular.module('swigit.post_body',[])
     '$stateParams',
     'dataCtrl',
     function($scope,$state,$stateParams,dataCtrl) {
-      console.log(dataCtrl.db);
-      $scope.post = dataCtrl.db[$stateParams.url_slug];
+      // console.log(dataCtrl.hash);
+      // console.log(dataCtrl.db.hash[$stateParams.url_slug]);
+      $scope.post = dataCtrl.db.hash[$stateParams.url_slug];
     }]);

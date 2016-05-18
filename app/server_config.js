@@ -7,8 +7,6 @@ var bodyParser = require('body-parser'); //install
 
 var route = require('./http/route');
 
-
-
 var app = express();
 
 app.use(partials());
@@ -19,6 +17,6 @@ app.use(bodyParser.json());
 //   saveUninitialized: true
 // }));
 app.use(express.static(__dirname + '/../pub'));
-app.get('/_api/posts', route.post_data);
+app.get('/_api/posts', route.post_api);
 app.get('/*', route.redirect);
 module.exports = app;

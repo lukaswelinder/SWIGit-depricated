@@ -7,32 +7,15 @@ angular.module('swigit.post_index',[])
     '$stateParams',
     'dataCtrl',
     function($scope,$state,$stateParams,dataCtrl) {
-    //simulate json...
-    $scope.posts = [
-    {
-      title: 'Post Title Sample...',
-      author: 'Lukas Welinder',
-      date: 'May 2, 2016',
-      url_slug: 'random-postname',
-      exerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh tortor, cursus mollis pellentesque quis, egestas eu lacus. Aenean rhoncus posuere interdum.'
-    },{
-      title: 'Post Title Sample...',
-      author: 'Lukas Welinder',
-      date: 'May 2, 2016',
-      url_slug: 'random-postname',
-      exerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh tortor, cursus mollis pellentesque quis, egestas eu lacus. Aenean rhoncus posuere interdum.'
-    },{
-      title: 'Post Title Sample...',
-      author: 'Lukas Welinder',
-      date: 'May 2, 2016',
-      url_slug: 'random-postname',
-      exerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh tortor, cursus mollis pellentesque quis, egestas eu lacus. Aenean rhoncus posuere interdum.'
-    },{
-      title: 'Post Title Sample...',
-      author: 'Lukas Welinder',
-      date: 'May 2, 2016',
-      url_slug: 'random-postname',
-      exerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh tortor, cursus mollis pellentesque quis, egestas eu lacus. Aenean rhoncus posuere interdum.'
-    },
-    ];
+      console.log(dataCtrl.db.arr);
+      $scope.posts = dataCtrl.db.arr;
+
+      
+    // {
+    //   title: 'Post Title Sample...',
+    //   author: 'Lukas Welinder',
+    //   date: 'May 2, 2016',
+    //   url_slug: 'random-postname',
+    //   exerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh tortor, cursus mollis pellentesque quis, egestas eu lacus. Aenean rhoncus posuere interdum.'
+    // }
   }]);

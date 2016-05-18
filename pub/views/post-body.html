@@ -9,17 +9,17 @@
     {{post.author}}
   </div>
   <div class="chip brown lighten-4">
-    {{post.date}}
+    {{post.published | date:format}}
   </div>
 </div>
 
 <div class="row post-body">
   <div class="col s12 m10 offset-m1">  
-    <p class="flow-text brown-text text-darken-2">
+    <div class="flow-text brown-text text-darken-2">
       
-      {{post.body}}
+      {{post.content}}
 
-    </p>
+    </div>
   </div>
 </div>
 

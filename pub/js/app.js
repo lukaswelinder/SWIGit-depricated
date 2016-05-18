@@ -22,13 +22,18 @@ angular.module('swigit', [
     .state('index', {
         url: '/',
         templateUrl: '/views/post-index.html',
+        resolve: {
+          index_data: ['$stateParams','dataCtrl',function($stateParams,dataCtrl) {
+            return dataCtrl.fetch_index();
+          }]
+        },
         controller: 'indexCtrl'
       })
     .state('post', {
         url: '/post/:url_slug',
         templateUrl: '/views/post-body.html',
         resolve: {
-          article_data: ['$stateParams','dataCtrl',function($stateParams,dataCtrl) {
+          post_data: ['$stateParams','dataCtrl',function($stateParams,dataCtrl) {
             console.log($stateParams);
             return dataCtrl.fetch_post($stateParams);
           }]
@@ -71,7 +76,7 @@ angular.module('swigit', [
       // console.log(evt,next,curr);
     });
     $rootScope.$on('$locationChangeSuccess', function(evt,curr,prev) {
-      $('.ui-view-body').fadeIn('slow');
+      $('.ui-view-body').fadeIn(600);
       // console.log(evt,curr,prev);
     });
 

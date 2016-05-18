@@ -9,15 +9,15 @@
 
     <div class="post-body">
       <div class="col s12 m10 offset-m1">  
-        <p class="brown-text text-darken-2">
-          {{post.exerpt}}
-        </p>
+        <div class="brown-text text-darken-2">
+          {{post.content | limitTo: 128 }}
+        </div>
       </div>
     </div>
 
     <div class="right-align">
       <div class="chip brown lighten-4">
-        {{post.date}}
+        {{post.published | date:format}}
       </div>
     </div>
   
