@@ -6,18 +6,19 @@ angular.module('swigit.ctrl',[])
     var db = {};
     
     var fetch_post = function(params) {
-      console.log(params);
+      // console.log(params);
 
-      if(params.url_slug in db)
-        return db[params.url_slug];
+      // if(params.url_slug in db)
+      //   return db[params.url_slug];
 
-      return $http.get('/_api/posts',{
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          data: params,
-        }).then(function(res) {
-          return res.data;
+      return $http({
+          method: 'GET',
+          url: '/_api/posts',
+          data: params
+        })
+        .then(function (resp) {
+          db[resp.data.url_slug] = resp.data;
+          return db;
         });
     };
 

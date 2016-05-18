@@ -1,24 +1,21 @@
 <div class="container" ng-controller="indexCtrl">
 <div ng-repeat="post in posts">
 
-<div ui-sref="index.post({url_slug: post.url_slug})" class="hoverable container post-index-card">
+<div ui-sref="post({url_slug: post.url_slug})" class="hoverable container post-index-card">
   
     <div class="col s12 m10 offset-m1">
-      <h3 class="brown-text text-darken-3 card-title">{{post.title}}</h3>
+      <h4 class="brown-text text-darken-3 card-title">{{post.title}}</h4>
     </div>
 
     <div class="post-body">
       <div class="col s12 m10 offset-m1">  
-        <p class="flow-text brown-text text-darken-2">
+        <p class="brown-text text-darken-2">
           {{post.exerpt}}
         </p>
       </div>
     </div>
 
-    <div class="col s12 m10 offset-m1">
-      <div class="chip brown lighten-4">
-        {{post.author}}
-      </div>
+    <div class="right-align">
       <div class="chip brown lighten-4">
         {{post.date}}
       </div>

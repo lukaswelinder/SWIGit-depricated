@@ -24,10 +24,16 @@ angular.module('swigit', [
         templateUrl: '/views/post-index.html',
         controller: 'indexCtrl'
       })
-    .state('index.post', {
-        url: 'post/:url_slug',
+    .state('post', {
+        url: '/post/:url_slug',
         templateUrl: '/views/post-body.html',
-        controller: 'postCtrl'
+        resolve: {
+          article_data: ['$stateParams','dataCtrl',function($stateParams,dataCtrl) {
+            console.log($stateParams);
+            return dataCtrl.fetch_post($stateParams);
+          }]
+        },
+        controller: 'postCtrl',
       })
     .state('about', {
         url: '/about',
@@ -43,28 +49,36 @@ angular.module('swigit', [
 
     $locationProvider.html5Mode(true);
 
-    // $urlRouterProvider.deferIntercept();
+    $urlRouterProvider.deferIntercept();
 
   // $httpProvider.interceptors.push('');
   // $httpProvider.interceptors.push('AttachTokens');
 
 })
 
-.run(function ($rootScope, $urlRouter) {
+.run([
+  '$rootScope',
+  '$state',
+  '$stateParams',
+  '$urlRouter',
+  function ($rootScope, $state, $stateParams, $urlRouter) {
+
+    $rootScope.$state = $state;
+    $rootScope.$stateParams = $stateParams;
   
-  $rootScope.$on('$locationChangeStart', function(evt,next,curr) {
-    $('.ui-view-body').hide();
-    console.log(evt,next,curr);
-  });
-  $rootScope.$on('$locationChangeSuccess', function(evt,curr,prev) {
-    $('.ui-view-body').fadeIn('slow');
-    // console.log(evt,curr,prev);
-  });
+    $rootScope.$on('$locationChangeStart', function(evt,next,curr) {
+      $('.ui-view-body').hide();
+      // console.log(evt,next,curr);
+    });
+    $rootScope.$on('$locationChangeSuccess', function(evt,curr,prev) {
+      $('.ui-view-body').fadeIn('slow');
+      // console.log(evt,curr,prev);
+    });
 
 
   // Configures $urlRouter's listener *after* your custom listener
-  // $urlRouter.listen();
-});
+  $urlRouter.listen();
+}]);
 
 
 

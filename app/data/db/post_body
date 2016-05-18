@@ -1,21 +1,3 @@
-<div class="container" ng-controller="workCtrl">
-
-
-<div class="row">
-  <h2 class="brown-text text-darken-3">{{hello}}</h2>
-</div>
-<div class="row">
-  <div class="chip brown lighten-4">
-    L.M.Welinder
-  </div>
-  <div class="chip brown lighten-4">
-    May 2, 2016
-  </div>
-</div>
-
-<div class="row post-body">
-  <div class="col s12 m10 offset-m1">  
-    <p class="flow-text brown-text text-darken-2">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh tortor, cursus mollis pellentesque quis, egestas eu lacus. Aenean rhoncus posuere interdum. Maecenas congue bibendum ante, non hendrerit erat ornare in. Nulla varius blandit mi, quis vulputate turpis consectetur ut. Etiam at sapien suscipit sapien venenatis cursus ac ac neque. Sed vitae lectus metus. Praesent vitae libero vitae nisi mollis scelerisque sed id dolor. Pellentesque ullamcorper, justo nec <a href="#">consectetur dignissim</a>, massa sem maximus tellus, vitae finibus ligula dui non sem. Vestibulum elementum suscipit finibus. Aliquam maximus ante eros, eu ullamcorper metus hendrerit quis. Aenean hendrerit porta lectus, non porta risus. Aliquam id nisi tellus. Nam sagittis, massa in imperdiet lacinia, felis turpis eleifend justo, nec iaculis magna justo et nibh. Aliquam eget volutpat purus, non porttitor orci.
 
       Aenean sed rhoncus mi. Cras varius, dolor et faucibus efficitur, urna nibh suscipit felis, at tempor dolor mi sit amet tellus. Nulla facilisi. Donec ut bibendum sapien. Morbi nec fringilla orci, quis euismod libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque ac elit odio. In hac habitasse platea dictumst. Vestibulum faucibus nisi diam, id euismod erat gravida at. Maecenas pulvinar rutrum est, in finibus sapien ultrices at. Proin id ullamcorper felis. Proin viverra felis nec metus rhoncus, vel porta diam posuere. Nam suscipit, arcu non lacinia tempus, nibh massa lobortis ante, ut tempor magna nisi vitae turpis.
@@ -31,13 +13,3 @@
       Nam leo lectus, porttitor vitae neque at, convallis pretium sapien. Aliquam feugiat metus sit amet nunc efficitur commodo. Donec fermentum varius feugiat. Nunc vulputate est sed ante egestas rutrum. Suspendisse diam turpis, euismod non aliquam ac, congue at velit. Aenean facilisis mattis lacus eget semper. Nulla maximus dolor et lectus consectetur posuere. Nam rhoncus sed ligula sed elementum. Vivamus feugiat, mauris a semper auctor, quam urna feugiat velit, et pharetra metus risus et erat. Aenean rutrum leo at lacus mollis, eu sollicitudin metus consectetur. Etiam felis nibh, eleifend id augue vel, viverra ullamcorper nulla. Morbi scelerisque feugiat nibh id pharetra.
 
       Cras eros sem, luctus quis leo vitae, varius imperdiet massa. Donec sodales est sit amet orci ultricies euismod. Suspendisse potenti. Vivamus volutpat pretium facilisis. Vivamus dapibus scelerisque ultricies. Aliquam nec nunc est. Vivamus luctus molestie velit id aliquam. Quisque viverra orci et dolor scelerisque, ut finibus magna ornare. Sed nisi est, ultrices ut libero et, ornare feugiat tellus. Integer a rhoncus ante. Nulla id enim ipsum. Vestibulum sed pellentesque neque, in suscipit risus. Quisque nec nunc risus. Pellentesque vehicula diam in felis porttitor, tincidunt elementum est tempor. Sed a ex sed sapien malesuada dignissim. Cras feugiat mollis massa, a suscipit.
-
-
-    </p>
-  </div>
-</div>
-
-
-
-
-</div>
